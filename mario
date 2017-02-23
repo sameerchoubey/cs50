@@ -1,0 +1,35 @@
+/*
+This is written by Sameer Choubey.
+Pset 1 - mario less comfortable
+*/
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main (void)
+{
+    int height;
+    int spaces;
+    int dashes;
+   do 
+    {
+        printf("Height:");
+        height = GetInt();
+    }
+    while (height <= 0 || height >= 23);
+    //loop for the rows
+    for (int i = 1; i < height; i++)
+    {
+        //loop for the spaces and dashes per row
+        for (spaces = (height - i); spaces >= 0; spaces--)
+        {
+            printf(" ");
+        }
+        for (dashes = 1; dashes <= (i + 1); dashes++)
+        {
+            printf("#");    
+        }
+        printf("\n");
+    }
+    
+}
