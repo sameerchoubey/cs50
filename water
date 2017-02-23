@@ -1,0 +1,20 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+
+{
+    printf("Minutes: ");
+    int minutes = GetInt();
+    
+    if (minutes > 0)
+    {
+        int bottles = 12 * minutes ;
+        printf("Bottles: %d\n", bottles);
+    }
+    else
+    {
+        printf("Number must be an integer\n");
+    }
+    
+}
