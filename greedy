@@ -1,0 +1,54 @@
+/* Hi there,
+    This program is written by 
+    Sameer Choubey
+    sameerchoubey.net
+*/
+
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main (void)
+
+{
+  float n;
+  // Declaring variables
+  int count, amount; // 
+  
+  do
+     {
+         printf("O hai! How much change is owed?\n");
+         n = get_float();
+     }
+     while (n < 0);
+     
+  n = n * 100.0;
+  amount = (int) round(n);
+  count = 0;
+  // Quarter is being used
+  while ( amount >= 25)
+  {
+      count++;
+      amount = amount - 25;
+  }
+  // Dime will be used
+  while ( amount >= 10)
+  {
+      count++;
+      amount = amount - 10;
+  }
+  // Nickle can be used
+  while ( amount >= 5)
+  {
+      count++;
+      amount = amount - 5;
+  }
+  // Pennies can be used
+  while ( amount >= 1)
+  {
+      count++;
+      amount = amount - 1;
+  }
+  printf("%d\n", count);
+
+}
