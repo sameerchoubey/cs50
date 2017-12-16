@@ -1,2 +1,1 @@
-# cs50
-Codes for CS50's PSET
+// This repository consists of cs50 pset1
