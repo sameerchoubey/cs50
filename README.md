@@ -1,3 +1,1 @@
-// This repository consists of cs50 pset1
-
-x = 28
+This repository consists of the CS50 problems solved by me.
