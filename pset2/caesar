@@ -1,0 +1,71 @@
+/* 
+
+This program has been written as during the time I took Harvard's Introduction to Computer Science CS50!
+
+Author - Sameer Choubey
+
+Language - C
+
+Blog - www.sameerchoubey.net
+*/
+
+//Including all the required header files
+
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main(int argc, string argv[])
+{
+    // checking for correct number of command line arguments... returning 1, if not true
+    if (argc != 2)
+    {
+        printf("No Action Further\n");
+        return 1;
+    }
+    
+    //converting the integer of type string into a true integer  
+    int key = atoi(argv[1]);
+    
+    //asking for plain text
+    printf("plaintext:  ");
+    string s = get_string();
+    
+    //printing the ciphertex
+    printf("ciphertext:  ");
+    
+    //heart of the program starts
+    for (int i = 0, length = strlen(s); i < length ; i++)
+    {
+        // accessing the each character of string that we have taken as input
+        char c = s[i];
+        
+        //checking whether the given input is string or not
+        if (isalpha(c))
+        {
+            //encrypting text if it is a uppercase
+            if (isupper(c))
+            {
+                char upperc = (((c-65) + key) % 26) + 65;
+                printf("%c", upperc);
+            }
+            
+            //encrypting text if it is a lowercase
+            else
+            {
+                char lowerc = (((c-97) + key) % 26) + 97;
+                printf("%c", lowerc);  
+            }
+        }
+        
+        //printing as it is if not a alphabet (either upper or lower case)
+        else
+        {
+            printf("%c", c);
+        }
+    }
+    printf("\n");
+    return 0;
+}

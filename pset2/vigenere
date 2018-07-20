@@ -1,0 +1,86 @@
+/* 
+
+This program has been written as during the time I took Harvard's Introduction to Computer Science CS50!
+
+Author - Sameer Choubey
+
+Email - sameer.choubey98@gmail.com
+
+Language - C
+
+Blog - www.sameerchoubey.net
+*/
+
+//Including all the required header files
+
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main(int argc, string argv[])
+{
+     // checking for correct number of command line arguments... returning 1, if not true
+     
+    if (argc != 2)
+    {
+        printf("No Action Further\n");
+        return 1;
+    }
+    
+    string k = argv[1];
+    int keylength = strlen(k);
+    
+    for (int i = 0; i < keylength ; i++)
+    {
+        if(!isalpha(k[i]))
+        {
+            printf("No Action Further\n");
+            return 1;
+        }
+    }
+    
+    //getting plaintext from the user
+    
+    printf("plaintext: ");
+    string s = get_string();
+    
+    //printing the encrypted text
+    
+    printf("ciphertext: ");
+    
+    //heart of the program
+    for (int i=0,j=0, length=strlen(s); i<length ; i++)
+    {
+        
+        int keyletter = tolower(k[j % keylength]) - 97;
+        
+        char c = s[i];
+        if(isalpha(c))
+        {
+            //checking for upper case
+            if((isupper(c)))
+            {
+                char upperc=(((c-65) + keyletter) % 26) + 65;
+                printf("%c", upperc);
+                j++;
+            }
+            //checking for lowercase
+            else
+            {
+                
+                char lowerc = (((c-97) + keyletter) % 26) + 97;
+                printf("%c", lowerc);
+                j++;
+            }
+        }
+        else
+        {
+            printf("%c", c);
+        }
+    }
+    printf("\n");
+    return 0;
+
+}
