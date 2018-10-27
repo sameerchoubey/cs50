@@ -5,4 +5,4 @@ thanks
 
 are you sure
 your re.... 
-You are my friend
+You a
